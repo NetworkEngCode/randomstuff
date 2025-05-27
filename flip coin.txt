@@ -1,0 +1,16 @@
+Function PrintCoinFlips(integer numFlips) returns nothing
+   integer i
+   integer flip
+
+   for i = 0; i < numFlips; i = i + 1
+      flip = RandomNumber(0, 1)
+      if flip == 0
+         Put "heads\n" to output
+      else
+         Put "tails\n" to output
+
+Function Main() returns nothing
+   integer numFlips
+   SeedRandomNumbers(2)
+   numFlips = Get next input
+   PrintCoinFlips(numFlips)
