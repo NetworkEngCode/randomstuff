@@ -5,7 +5,6 @@
 </picture>
 
 
-
 # 👋 Hi, I'm Jerry
 
 I'm a **Network Engineer** focused on building, automating, and securing reliable network infrastructure.
