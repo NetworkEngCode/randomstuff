@@ -1,3 +1,11 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="dark_mode.svg">
+  <source media="(prefers-color-scheme: light)" srcset="light_mode.svg">
+  <img alt="Profile SVG" src="light_mode.svg">
+</picture>
+
+
+
 # 👋 Hi, I'm Jerry
 
 I'm a **Network Engineer** focused on building, automating, and securing reliable network infrastructure.
