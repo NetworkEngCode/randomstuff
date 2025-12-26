@@ -1,34 +1,43 @@
 name: README build
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   schedule:
     - cron: "0 4 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
+
+      - name: Generate SVG templates
+        shell: pwsh
+        run: ./New-ProfileSvg.ps1
+
       - name: Update README file
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           USER_NAME: ${{ secrets.USER_NAME }}
         shell: pwsh
         run: ./today.ps1
-      - name: Commit
+
+      - name: Commit changes
         shell: pwsh
         run: |
+          git status
           git add .
-          git diff
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git diff-index --quiet HEAD
-          if ($LASTEXITCODE -eq 1) {
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          if (-not (git diff --cached --quiet)) {
             git commit -m "Updated README"
             git push
           } else {
