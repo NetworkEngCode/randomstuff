@@ -1,19 +1,26 @@
 $Config = @{
-    Username  = "jerryrico"
+    Username  = "NetworkEngCode"
     BirthYear = 1988
 
+    AsciiArt = "ascii-art.txt"
+
+    OutputFiles = @{
+        Dark  = "dark_mode.svg"
+        Light = "light_mode.svg"
+    }
+
     Profile = [ordered]@{
-        OS                      = "Windows 11"
-        Uptime                  = $null
+        OS                      = "Windows"
         Host                    = "N/A"
         Kernel                  = "Network Automation Engineer"
         IDE                     = "VS Code"
         "Languages.Programming" = "Python"
-        Hobbies                 = "Networking labs, automation, learning"
+        Hobbies                 = "Networking, Automation"
     }
 
     Contact = [ordered]@{
-        LinkedIn = "jerryrico"
         GitHub   = "NetworkEngCode"
+        LinkedIn = "jerryrico"
     }
 }
+
